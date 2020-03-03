@@ -1,0 +1,26 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+for i in range (int(input())):
+    a=int(input())
+    b=list(input().split())
+    c=[int(i) for i in b]
+    d=[]
+    c.sort()
+    for j in range(a):
+        d.append(0)
+    if a%2==0:
+        d[a//2]=min(c)
+        c.remove(min(c))
+    else:
+        d[(a-1)//2]=min(c)
+        c.remove(min(c))
+    p,f,g=0,(a//2),1
+    for j in range((a//2)+1,a):
+        d[j]=c[p]
+        p+=2
+    for h in range((a//2)):
+        d[f-1]=c[g]
+        f-=1
+        g+=2
+    for you in d:
+        print(you,end=" ")
+    print()
